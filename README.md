@@ -3,17 +3,24 @@
 ## Introdução
 
 ### Estrutura do projeto
+```md
+Cifar10 -> Arquivos referentes aos testes realizados na base cifar-10
+  Cifar10GAN.py - Código Python utilizado para prova de conceito de GANs utilizando 
+  Figuras (png e jpg) - Imagens geradas pelo modelo e exemplo de imagens do dataset
+Teste1 -> Resultado da primeira abordagem utilizando as pinturas de Bob Ross
+```
 
 ### Motivação
 
 ### Prova de conceito: CIFAR-10
 
-Foi utilizada a base [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) (somente carros) para uma abordagem inicial. Essa base foi escolhida por ser conceituada no mundo de ciência de dados, possuir um conjunto suficientemente de exemplos de treino e vasta literatura.
+Foi utilizada a base [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) (somente carros) para uma abordagem inicial de teste de arquiteturas de GANs. Essa base foi escolhida por ser conceituada no mundo de ciência de dados, possuir um conjunto suficientemente de exemplos de treino e vasta literatura.
 
 ![alt text](https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Cifar/Unknown.jpg)
 
 Figura - Imagens sintéticas e Imagens de carros CIFAR-10. Imagens de 0 a 9 são as sintetizadas pelo modelo.
 
+[Esse medium](https://medium.com/@utk.is.here/keep-calm-and-train-a-gan-pitfalls-and-tips-on-training-generative-adversarial-networks-edd529764aa9) foi utilizado como referência para a construção do modelo para CIFAR-10.
 
 ## Generative Adversarial Network - GAN
 
@@ -44,6 +51,6 @@ EM DESENVOLVIMENTO
 
 Segundo [Theis et al., 2015](https://arxiv.org/abs/1511.01844), por ser desconhecida a distribuição das imagens geradas, não existe uma unica métrica quantitativa capaz de avaliar o modelo generator. Entendo que, por causa disso, a avalição da qualidade do generator é majoritariamente qualitativa e subjetiva.
 
-A ausencia de uma GPU gera limitações na arquitura proposta, resultando também em uma queda de performance das imagens geradas.
+A ausencia de uma GPU gera limitações na arquitura proposta, resultando também em uma queda de performance das imagens geradas. O tempo de treino, por epoch, foi de aproximadamente 2 minutos.
 
 Por ser um dataset gerado manualmente, temos uma quantidade limitada de dados, o que pode comprometer a performance.
