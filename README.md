@@ -66,7 +66,10 @@ O treinamento de uma GAN consiste em balancear esses dois modelos. Para isso, fo
 A arquitetura proposta foi inspirada na Spectral Normalization GAN (SN-GAN) proposta por [Miyato et al., 2018](https://arxiv.org/abs/1802.05957)
 
 <p align="center">
-  <img src="https://github.com/MatheusCalil/TheJoyOfGan/tree/master/Final/SN-GAN.jpg" />
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/SN-GAN.jpg" />
+</p>
+<p align="center">
+Figura - Arquitetura de GAN proposta por Miyato et al.
 </p>
 
 ## Alterações
@@ -77,9 +80,23 @@ A arquitetura proposta foi inspirada na Spectral Normalization GAN (SN-GAN) prop
 
 <b>Discriminator:</b>
 - Sem alterações
+
 # Resultados
 
-EM DESENVOLVIMENTO
+
+<p align="center">
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/training_process.jpg" />
+</p>
+<p align="center">
+Figura - Diferentes imagens geradas por Epoch. Superior Esquerdo: Ruído epoch 0. Superior Direito: 50 epoch. Inferior Esquerdo: 150 epoch. Inferior Direito: 200 Epoch
+</p>
+
+<p align="center">
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/SN-GAN.jpg" />
+</p>
+<p align="center">
+Figura - Arquitetura de GAN proposta por Miyato et al.
+</p>
 
 # Limitações
 
