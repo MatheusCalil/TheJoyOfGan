@@ -111,7 +111,7 @@ Figura - De 0 a 9 imagens geradas pelo modelo, de 10 a 19 imagens do dataset.
 Me baseei nos resultados de [Mufti et al., 2019](https://arxiv.org/pdf/1903.06259.pdf) como estado da arte.
 
 <p align="center">
-  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Generated_Samples.jpg" />
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Mufti.jpg" />
 </p>
 <p align="center">
 Figura - Imagens geradas por Mufti et al., 2019
