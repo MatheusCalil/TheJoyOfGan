@@ -75,7 +75,7 @@ Figura - Arquitetura de GAN proposta por Miyato et al.
 ## Alterações
 <b>Generator:</b>
 - Foram adicionador camadas de Dropout(0.25) ao final de cada bloco.
-- Foram adicionados BatchNormalziation dentro de cada convolução.
+- Foram adicionados [BatchNormalization](https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c) dentro de cada convolução.
 - Uma camada Densa de 1x1x1024 foi adicionada antes da camada Densa proposta na figura.
 
 <b>Discriminator:</b>
