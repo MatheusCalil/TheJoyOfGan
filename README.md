@@ -2,15 +2,22 @@
 
 ## Introdução
 
-### Estrutura do projeto
-```md
-Cifar10 -> Arquivos referentes aos testes realizados na base cifar-10
-  Cifar10GAN.py - Código Python utilizado para prova de conceito de GANs utilizando 
-  Figuras (png e jpg) - Imagens geradas pelo modelo e exemplo de imagens do dataset
-Teste1 -> Resultado da primeira abordagem utilizando as pinturas de Bob Ross
-```
+### Sobre GANs e suas aplicações.
+
+GANs foram inicialmente propostas por Ian Goodfellow em seu [artigo de 2014 entitulado Generative Adversarial Networks](https://arxiv.org/abs/1406.2661). Desde então, diversas arquiteturas e [aplicações](https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/) foram propostas. Entre suas aplicações, a mais famosa talvez seja seu uso em [filtros em redes sociais](https://dimensionless.in/trending-story-faceapp-gans/).
 
 ### Motivação
+
+Decidi montar esse projeto com o unico proposito de aprendizado e diversão. O conjunto de dados que decidi utilizar são as pinturas do [lendário artista Bob Ross](https://www.youtube.com/user/BobRossInc), cujo programa The Joy of Painting inspirou o nome do projeto. 
+Bob Ross acreditava que qualquer um podia pintar como ele, então decidi descobrir se uma rede neural artificial também poderia.
+
+### Estrutura do projeto
+```md
+Cifar -> Arquivos referentes aos testes realizados na base cifar-10
+  Cifar10GAN.py - Código Python utilizado para prova de conceito de GANs utilizando 
+  Figuras - Imagens geradas pelo modelo e exemplo de imagens do dataset
+GAN Images V1 -> Resultado da primeira abordagem utilizando as pinturas de Bob Ross
+```
 
 ### Prova de conceito: CIFAR-10
 
