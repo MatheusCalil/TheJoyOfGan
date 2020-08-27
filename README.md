@@ -16,7 +16,12 @@ Bob Ross acreditava que qualquer um podia pintar como ele, então decidi descobr
 Cifar -> Arquivos referentes aos testes realizados na base cifar-10
   Cifar10GAN.py - Código Python utilizado para prova de conceito de GANs utilizando 
   Figuras - Imagens geradas pelo modelo e exemplo de imagens do dataset
+Dataset -> Contém o conjunto de dados, compactado, utilizado para treinamento da GAN
 GAN Images V1 -> Resultado da primeira abordagem utilizando as pinturas de Bob Ross
+Final
+  Model - > contem os arquivos do generator utilizado para gerar as imagens em Samples
+  Samples -> Amostras de imagens geradas pelo modelo (0 a 9) e imagens do dataset (10 a 19)
+  TheJoyOfGAN.py -> Arquivo Python com o código de treinamento e vizualização
 ```
 
 ### Prova de conceito: CIFAR-10
@@ -58,8 +63,16 @@ O treinamento de uma GAN consiste em balancear esses dois modelos. Para isso, fo
 
 ### Arquitetura Proposta de GAN
 
-EM DESENVOLVIMENTO
+A arquitetura proposta foi inspirada na Spectral Normalization GAN (SN-GAN) proposta por [Miyato et al., 2018](https://arxiv.org/abs/1802.05957)
 
+## Alterações
+<b>Generator:</b>
+- Foram adicionador camadas de Dropout(0.25) ao final de cada bloco.
+- Foram adicionados BatchNormalziation dentro de cada convolução.
+- Uma camada Densa de 1x1x1024 foi adicionada antes da camada Densa proposta na figura.
+
+<b>Discriminator:</b>
+- Sem alterações
 # Resultados
 
 EM DESENVOLVIMENTO
