@@ -111,7 +111,7 @@ Figura - De 0 a 9 imagens geradas pelo modelo, de 10 a 19 imagens do dataset.
   <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Casos_similares.png" width="600" height="600"/>
 </p>
 <p align="center">
-Figura - Casos visualmente semelhantes Dataset versos Modelo.
+Figura - Casos visualmente semelhantes Dataset versus Modelo.
 </p>
 
 
