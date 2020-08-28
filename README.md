@@ -1,4 +1,8 @@
-# TheJoyOfGan
+# The Joy Of GAN
+ 
+<p align="center">
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/readme_figures/TheJoyOfGAN.jpeg" width="450" />
+</p>
 
 # Introdução
 
