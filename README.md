@@ -14,7 +14,7 @@ Para Data Science, GANs podem ser utilizadas na prática para gerar dados sinté
 
 ### Motivação
 
-Decidi montar esse projeto com o unico proposito de aprendizado e diversão. O conjunto de dados utilizado são as pinturas do [lendário artista Bob Ross](https://www.youtube.com/user/BobRossInc), cujo programa The Joy of Painting inspirou o nome do projeto. Todos os dados foram obtidos no site com [todas as pinturas feitas por Bob Ross](https://www.twoinchbrush.com/all-paintings?page=14).
+Decidi montar esse projeto com o unico proposito de aprendizado e diversão. O conjunto de dados utilizado são as pinturas do [artista Bob Ross](https://www.youtube.com/user/BobRossInc), cujo programa The Joy of Painting inspirou o nome do projeto. Todos os dados foram obtidos nesse site com [todas as pinturas feitas por Bob Ross](https://www.twoinchbrush.com/all-paintings?page=14).
 Bob Ross acreditava que qualquer um podia pintar como ele, então decidi descobrir se uma rede neural artificial também poderia.
 
 ### Estrutura do projeto
