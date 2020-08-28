@@ -65,7 +65,7 @@ O treinamento de uma GAN consiste em balancear esses dois modelos. Para isso, fo
 
 ### Arquitetura Proposta de GAN
 
-A arquitetura proposta foi inspirada na Spectral Normalization GAN (SN-GAN) proposta por [Miyato et al., 2018](https://arxiv.org/abs/1802.05957)
+A arquitetura proposta foi inspirada na Spectral Normalization GAN (SN-GAN) desenvolvida por [Miyato et al., 2018](https://arxiv.org/abs/1802.05957)
 
 <p align="center">
   <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/SN-GAN.jpg" />
