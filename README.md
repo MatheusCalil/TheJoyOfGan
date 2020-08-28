@@ -80,7 +80,7 @@ Figura - Arquitetura de GAN proposta por Miyato et al.
 
 ### Alterações
 <b>Discriminator:</b>
-- Foram adicionador camadas de Dropout(0.25) ao final de cada bloco.
+- Foram adicionadas camadas de Dropout(0.25) ao final de cada bloco.
 - Foram adicionados [BatchNormalization](https://towardsdatascience.com/batch-normalization-in-neural-networks-1ac91516821c) dentro de cada convolução.
 - Uma camada Densa de 1024 neurônios foi adicionada antes da camada Densa proposta na figura.
 
@@ -117,8 +117,6 @@ Figura - De 0 a 9 imagens geradas pelo modelo, de 10 a 19 imagens do dataset.
 <p align="center">
 Figura - Casos visualmente semelhantes Dataset versus Modelo.
 </p>
-
-
 
 ### Trabalhos relacionados:
 
