@@ -94,21 +94,21 @@ Figura - Arquitetura de GAN proposta por Miyato et al.
 O treinamento ocorreu durante 200 epochs, utilizando batchs de 15 imagens. Os resultados principais estão representados nas próximas figuras.
 
 <p align="center">
-  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/training_process.jpg" />
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/training_process.jpg" width="700" height="350" />
 </p>
 <p align="center">
 Figura - Diferentes imagens geradas por Epoch. Superior Esquerdo: Ruído gerado na epoch 0. Superior Direito: 50 epoch. Inferior Esquerdo: 150 epoch. Inferior Direito: 200 Epoch. Podemos observar o incremento nas imagens geradas conforme o modelo é treinado.
 </p>
 
 <p align="center">
-  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Generated_Samples.jpg" />
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Generated_Samples.jpg" width="600" height="600"/>
 </p>
 <p align="center">
 Figura - De 0 a 9 imagens geradas pelo modelo, de 10 a 19 imagens do dataset.
 </p>
 
 <p align="center">
-  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Casos_similares.png" />
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Casos_similares.png" width="600" height="600"/>
 </p>
 <p align="center">
 Figura - Casos visualmente semelhantes Dataset versos Modelo.
