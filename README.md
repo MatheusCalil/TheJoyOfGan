@@ -107,6 +107,14 @@ Figura - Diferentes imagens geradas por Epoch. Superior Esquerdo: Ruído gerado 
 Figura - De 0 a 9 imagens geradas pelo modelo, de 10 a 19 imagens do dataset.
 </p>
 
+<p align="center">
+  <img src="https://github.com/MatheusCalil/TheJoyOfGan/blob/master/Final/Casos_similares.png" />
+</p>
+<p align="center">
+Figura - Casos visualmente semelhantes Dataset versos Modelo.
+</p>
+
+
 
 ### Trabalhos relacionados:
 
