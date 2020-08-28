@@ -6,6 +6,8 @@
 
 GANs foram inicialmente propostas por Ian Goodfellow em seu [artigo de 2014 entitulado Generative Adversarial Networks](https://arxiv.org/abs/1406.2661). Desde então, diversas arquiteturas e [aplicações](https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/) foram propostas. Entre suas aplicações, a mais famosa talvez seja seu uso em [filtros em redes sociais](https://dimensionless.in/trending-story-faceapp-gans/).
 
+Para Data Science, GANs podem ser utilizadas na prática para gerar dados sintéticos, remoção de ruídos em imagens e treinamento semi-supervisionado.
+
 ### Motivação
 
 Decidi montar esse projeto com o unico proposito de aprendizado e diversão. O conjunto de dados utilizado são as pinturas do [lendário artista Bob Ross](https://www.youtube.com/user/BobRossInc), cujo programa The Joy of Painting inspirou o nome do projeto. Todos os dados foram obtidos no site com [todas as pinturas deitas por Bob Ross](https://www.twoinchbrush.com/all-paintings?page=14).
