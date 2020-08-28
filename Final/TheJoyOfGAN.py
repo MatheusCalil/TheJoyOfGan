@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Thanks to 
+Principais referencias para esse codigo
+
 https://machinelearningmastery.com/how-to-develop-a-generative-adversarial-network-for-a-cifar-10-small-object-photographs-from-scratch/
 
 https://www.tensorflow.org/tutorials/generative/dcgan
@@ -18,35 +19,49 @@ from tensorflow.keras import layers
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-BATCH_SIZE = 15
+BATCH_SIZE = 15 #Tamanho do Batch
 
-INPUT_SHAPE = [128,128,3]
+INPUT_SHAPE = [128,128,3] #Shape das imagens
 
-def load_dataset(folder="/Users/matheus.faleiros/Documents/bobross"):
+def load_dataset(folder=""):
+    """
+        Função que carrega o dataset em formato RGB com altura e largura 128x128 (3,128,128)
+        
+        Input:
+            folder [String] - Caminho das imagens. Elas devem começar com painting.
+        
+        Output:
+            ims [List] - lista contendo as imagens do diretorio informado
+    """
     read = lambda imname: np.asarray(Image.open(imname).convert("RGB").resize((128,128))) #resize to get 32,32,3 and keep things easy
 
     ims = [read(os.path.join(folder, filename))  for filename in os.listdir(folder) if "painting" in filename]  
     
     return ims
 
-#No need since we resized the images
-def clean_dataset(images, debug = False):
-    #removing very small images, that can be noise in the dataset
-    #all images have shape:
-    #(15, 20, 3) or (337, 450, 3)
-    #we will keep  only (337, 450, 3) images
-    keep_images = []
-    for image in images:
-        if debug:
-            print(image.shape)
-        if image.shape == (337,450,3):
-            keep_images.append(image)
-    return keep_images
 
 def display_sample(images, index):
+    """
+     Funçao para dar display em uma imagem e exibir ela na tela
+     
+     Inputs:
+         images [Lista] - contem de N imagens, por exemplo, output de load_dataset
+         index [int] -  indice da imagem na lista para ser exibida
+         
+    Output:
+        None
+    """
     Image.fromarray(images[index], 'RGB').show()
 
 def real_batch(images):
+    """
+        Cria o batch de imagens reais dado as imagens lidas do diretório
+        
+        Input:
+            images [list] - Imagens lidas do diretorio de origem ou processadas pela função preprocessing
+        Output
+            train_dataset [Tensor] - Tensor contendo batchs do tamanho da global BATCH_SIZE
+    """
     train_dataset = tf.data.Dataset.from_tensor_slices(images).shuffle(123).batch(BATCH_SIZE)
     return train_dataset
 
@@ -59,9 +74,18 @@ def preprocessing(images):
 ############# Modeling #############
 
 def make_discriminator_model():
-    #SN GAN: cada bloco contem 2 convolucoes, uma 3x3 stride 1 e outra 4x4 de stride 2
-    #Os numero de mapas vai de 64 para 128 para 256 para 512
-    #Add dropouts to avoid overffiting - the model seem to be much complex
+    """
+        Função que gerar a arquitetura do modelo discriminador.
+        SN GAN: cada bloco contem 2 convolucoes, uma 3x3 stride 1 e outra 4x4 de stride 2
+        Os numero de mapas vai de 64 para 128 para 256 para 512.
+        Dropout adicionados parar evitar overfitting e ajudar no treino.
+        
+        Input:
+            
+        Output:
+            model [keras.Sequential] - Modelo sequencial de CNN
+    """
+
     model = tf.keras.Sequential()
     
     #Bloco 1
@@ -109,6 +133,15 @@ def make_discriminator_model():
     return model
 
 def make_generator_model():
+    """
+        Função que cria o gerador
+        SN-GAN
+        
+        Input:
+            
+        Output:
+            model [keras.Sequential()] - Modelo CNN de descovolução
+    """
     #SN-GAN Generator
     #MODIFICAÇÕES: Adicionado uma conv a  mais
     model = tf.keras.Sequential()
@@ -158,6 +191,7 @@ def discriminator_loss(real_output, fake_output):
 def generator_loss(fake_output):
     return cross_entropy(tf.ones_like(fake_output), fake_output)
 
+#Cria os otimizadores para os dois modelos.
 generator_optimizer = tf.keras.optimizers.Adam(1e-4, 0.5)
 discriminator_optimizer = tf.keras.optimizers.Adam(1e-4, 0.5)
 
@@ -165,6 +199,18 @@ discriminator_optimizer = tf.keras.optimizers.Adam(1e-4, 0.5)
 # This annotation causes the function to be "compiled".
 @tf.function
 def train_step(images,generator,discriminator):
+    """
+        Passo de treinamento do generator e discriminator.
+        A anotation @tf.function faz com que a função seja pre-compilada, aumentando a eficiência.
+        
+        Input:
+            images [Tensor] - Um unico batch de imagens geradas em real_batch
+            generator [keras.Sequential] - Modelo gerador
+            discriminator [keras.Sequential] - Modelo discriminador
+        Output
+            gen_loss [float] - float contendo a loss do gerador nesse passo de treino
+            disc_loss [float] - float contendo a loss do discriminador nesse passo de treino
+    """
     noise = tf.random.normal([BATCH_SIZE, 100])
 
     with tf.GradientTape() as gen_tape, tf.GradientTape() as disc_tape:
@@ -186,6 +232,19 @@ def train_step(images,generator,discriminator):
 
 
 def train_model(batch_images, epoch,generator,discriminator):
+    """
+        Processo de treinamento total.
+        Fixamos uma seed para avaliar o generator visualmente a cada 10 epochs
+        Calculamos a loss média do batch para os dois modelos, para acompanhamento.
+        Os objetos dos modelos são alterados por referência, portanto não precisam ser retornados na função.
+        Input:
+            batch_mages [Tensor] - Batch de imagens geradas em real_batch
+            epoch [int] - numero de epochs a serem treinadas
+            generator [keras.Sequential] - Modelo gerador
+            discriminator [keras.Sequential] - Modelo discriminador
+        Output:
+            None
+    """
     fixed_seed = tf.random.normal([1, 100])
     for epoch in tqdm(range(epoch)):
             gen_loss_list = []
@@ -205,6 +264,7 @@ def train_model(batch_images, epoch,generator,discriminator):
                 display_sample(np.array(generated_image[0, :, :, :]* 127.5 + 127.5, dtype='uint8').reshape((1,128,128,3)),0)
 
 def discriminator_auc(discriminator, batch_to_auc, ground_truth):
+    #Calcula a AUC do discriminador. Não foi utilizada.
     m = tf.keras.metrics.AUC()
     predictions = [discriminator(item.reshape((1,128,128,3)), training=False)[0] for item in batch_to_auc]
     #print(predictions)
@@ -215,51 +275,38 @@ def discriminator_auc(discriminator, batch_to_auc, ground_truth):
 #test pipeline
 images = load_dataset()
 
-display_sample(np.array(images, dtype='uint8'), 0)
+#display_sample(np.array(images, dtype='uint8'), 0)
 
 processed_images = preprocessing(images)
 
 batch_images = real_batch(processed_images)
 
-display_sample(np.array(processed_images, dtype='uint8'),0)
+#display_sample(np.array(processed_images, dtype='uint8'),0)
 
-display_sample(np.array(processed_images*127.5+127.5, dtype='uint8'),0)
+#display_sample(np.array(processed_images*127.5+127.5, dtype='uint8'),0)
 
 generator = make_generator_model()
 discriminator = make_discriminator_model()
 
+#Display a arquitetura
 generator.summary()
-
 discriminator.summary()
 
+#Treino
 train_model(batch_images, 200,generator,discriminator)
 
-#getting one batch of positive and negative to evaluation with AUC
+#Geramos um batch de imagens artificiais com o generator treinado
 noise = tf.random.normal([BATCH_SIZE, 100])
 generated_image = generator(noise, training=False)
-ground_truth = []
-batch_to_auc = []
-for item in list(batch_images.as_numpy_iterator())[0]:
-    batch_to_auc.append(item)
-    ground_truth.append(1)
-for item in list(generated_image.numpy()):
-    batch_to_auc.append(item)
-    ground_truth.append(0)
     
-
-print(discriminator_auc(discriminator, batch_to_auc, ground_truth))
-    
-display_sample(np.array(generated_image[0, :, :, :]* 127.5 + 127.5, dtype='uint8').reshape((1,128,128,3)),0)
-
+#Vamos agora salvar as imagens
 for i in range(10):
     image = np.array(generated_image[i, :, :, :]* 127.5 + 127.5, dtype='uint8').reshape((1,128,128,3))
-    #Image.fromarray(image[0], 'RGB').show()
-    Image.fromarray(image[0], 'RGB').save(f"/Users/matheus.faleiros/Documents/TheJoyOfGan/{i}.png")
+    Image.fromarray(image[0], 'RGB').save(f"{i}.png")
     
 for i in range(10):
     image = np.array(images, dtype='uint8')
-    #Image.fromarray(image[i*i], 'RGB').show()
-    Image.fromarray(image[i*i], 'RGB').save(f"/Users/matheus.faleiros/Documents/TheJoyOfGan/{i+10}.png")
+    Image.fromarray(image[i*i], 'RGB').save(f"{i+10}.png")
     
 
 
