@@ -86,7 +86,7 @@ Figura - Arquitetura de GAN proposta por Miyato et al.
 ### Anotações sobre arquitetura e treinamento
 - Toda implementação foi realizada com [TensorFlow 2.0](https://www.tensorflow.org) e algumas etapas, como o cálculo da loss, foram retiradas da documentação.
 - Não tive sucesso utilizando camadas Conv2DTranspose para desconvolução. Em vez disso, utilizei UpSampling e Conv2D.
-- A adição da última camada densa representa a diferença entre as imagens da pasta "/GAN Images V1" e "/Final/Samples". Dense Layers Matter.
+- A adição da última camada densa representa a diferença entre as imagens da pasta "/GAN Images V1" e "/Final/Samples".
 - Acompanhe a Loss do modelo, mas não espere estabilidade. As duas redes estão brigando entre si para se enganarem. Notei que no caso de sucesso, a loss da generator subiu consideravelmente após algumas epocas enquanto a do discriminator, caiu. [Mufti et al., 2019](https://arxiv.org/pdf/1903.06259.pdf) também reporta esse comportamento.
 
 # Resultados
