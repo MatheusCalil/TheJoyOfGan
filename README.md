@@ -136,3 +136,7 @@ Segundo [Theis et al., 2015](https://arxiv.org/abs/1511.01844), por ser desconhe
 A ausencia de uma GPU gera limitações na arquitura proposta, resultando também em uma queda de performance das imagens geradas. O tempo de treino, por epoch, foi de aproximadamente 2 minutos. Cada teste de arquitetura me custava em torno de 50 epochs (1 hora e meia) e cada execução mais longa, de 200 epochs, demorava 6 horas para executar. Não foi observado uma melhora em imagens geradas por muito mais epochs depois de 200, observando um limite de 400 epochs.
 
 Por ser um dataset gerado manualmente, temos uma quantidade limitada de dados, o que pode comprometer a performance.
+
+# Outras Referências Úteis
+
+[NIPS 2016 TUTORIAL GAN, Goodfellow, 2016](https://arxiv.org/pdf/1701.00160.pdf)
