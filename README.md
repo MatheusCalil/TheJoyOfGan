@@ -140,3 +140,5 @@ Por ser um dataset gerado manualmente, temos uma quantidade limitada de dados, o
 # Outras Referências Úteis
 
 [NIPS 2016 TUTORIAL GAN, Goodfellow, 2016](https://arxiv.org/pdf/1701.00160.pdf)
+
+[Revisão sobre estado da arte em GANs](https://www.researchgate.net/publication/340068457_A_State-of-the-Art_Review_on_Image_Synthesis_with_Generative_Adversarial_Networks)
